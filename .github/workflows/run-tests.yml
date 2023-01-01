@@ -42,7 +42,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
-          cache-dependency-path: FRONTEND/polls_test_ui/package-lock.json
+          cache-dependency-path: cache-dependency-path: "${ GITHUB_WORKSPACE }/FRONTEND/polls_test_ui/package-lock.json"
       - name: Install dependencies
         run: npm ci
       - name: Lint Check
