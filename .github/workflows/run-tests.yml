@@ -34,6 +34,9 @@ jobs:
       max-parallel: 4
       matrix:
         node-version: ["14", "18"]
+    defaults:
+      run:
+        working-directory: ./FRONTEND/polls_test_ui/
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -42,10 +45,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
-          cache-dependency-path: FRONTEND/polls_test_ui/package-lock.json
+          cache-dependency-path: package-lock.json
       - name: Install dependencies
-        run: |
-          cd FRONTEND/polls_test_ui/
-          npm ci
+        run: npm ci
       - name: Lint Check
         run: npm run lint
