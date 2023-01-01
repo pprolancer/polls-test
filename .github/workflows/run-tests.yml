@@ -9,7 +9,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]
+        python-version: ["3.9"]
     steps:
       - name: Update
         run: sudo apt update
@@ -37,8 +37,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          path: FRONTEND/polls_test_ui
       - name: Setup Node and Cache
         uses: actions/setup-node@v3
         with:
