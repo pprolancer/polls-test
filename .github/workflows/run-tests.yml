@@ -37,6 +37,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          path: FRONTEND/polls_test_ui
       - name: Setup Node and Cache
         uses: actions/setup-node@v3
         with:
