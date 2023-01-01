@@ -28,7 +28,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dist
-          path: dist.out # often 'dist'
+          path: ./FRONTEND/polls_test_ui/dist
   # deploy-staging:
   #   name: Deploy to Staging
   #   runs-on: ubuntu-latest
