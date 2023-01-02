@@ -44,11 +44,17 @@ jobs:
         with:
           name: dist
           path: /tmp/dist
-      - name: Deploy Artifact
-        run: |
-          sudo apt-get update -y
-          sudo apt-get upgrade -y
-          
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            whoami
+            ls -al
+
   # deploy-production:
   #   name: Deploy to Production
   #   runs-on: ubuntu-latest
